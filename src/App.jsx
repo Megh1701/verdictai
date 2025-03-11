@@ -8,6 +8,7 @@ import Bento from './components/Bento'
 import Faq from './components/Faq'
 import Partical from './components/Partical'
 import VerdictAI from './components/Verdictai'
+import AuthForm from './components/AuthForm'
 function App() {
 
 
@@ -22,7 +23,6 @@ function App() {
         <Faq/>
         <div className="flex-grow"></div> {/* This pushes the footer to the bottom */}
         <Footer />
-  
       </div>
     </>
   )
