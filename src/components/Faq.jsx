@@ -29,12 +29,14 @@ function AccordionItem({ title, children }) {
           filter: isOpen ? "blur(0px)" : "blur(8px)",
           height: isOpen ? "auto" : 0,
         }}
-        transition={{ duration: 0.5, 
-            ease: isOpen ? [0.25, 1, 0.5, 1] : [0.3, 0, 0.3, 1],  }}
+        transition={{
+          duration: 0.5,
+          ease: isOpen ? [0.25, 1, 0.5, 1] : [0.3, 0, 0.3, 1],
+        }}
         className="overflow-hidden cursor-pointer"
       >
         <motion.div layout className="pl-6 pr-2 text-zinc-500 dark:text-zinc-400" onClick={() => setIsOpen(!isOpen)}>
-          {children} 
+          {children}
         </motion.div>
       </motion.div>
     </div>

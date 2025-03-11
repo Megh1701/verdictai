@@ -1,10 +1,17 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import AuthForm from "./AuthForm.jsx";
 
-function Nav() {
+function Nav({ homeRef, featuresRef, servicesRef, pricingRef, faqRef }) {
     const [isOpen, setIsOpen] = useState(false);
     const [showAuthForm, setShowAuthForm] = useState(false);
+
+    // Function to scroll smoothly
+    const scrollToSection = (ref) => {
+        if (ref?.current) {
+            ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+            setIsOpen(false); // Close mobile menu after clicking
+        }
+    };
 
     return (
         <>
@@ -15,10 +22,11 @@ function Nav() {
 
                     {/* Desktop Menu */}
                     <div className="hidden md:flex space-x-6">
-                        <a href="#" className="hover:text-gray-400">Home</a>
-                        <a href="#" className="hover:text-gray-400">Features</a>
-                        <a href="#" className="hover:text-gray-400">Services</a>
-                        <a href="#" className="hover:text-gray-400">Pricing</a>
+                        <button onClick={() => scrollToSection(homeRef)} className="hover:text-gray-400">Home</button>
+                        <button onClick={() => scrollToSection(featuresRef)} className="hover:text-gray-400">Features</button>
+                        <button onClick={() => scrollToSection(servicesRef)} className="hover:text-gray-400">Services</button>
+                        <button onClick={() => scrollToSection(pricingRef)} className="hover:text-gray-400">Pricing</button>
+                        <button onClick={() => scrollToSection(faqRef)} className="hover:text-gray-400">FAQ</button>
                     </div>
 
                     {/* Get Started Button */}
@@ -38,20 +46,20 @@ function Nav() {
                 {/* Mobile Menu */}
                 {isOpen && (
                     <div className="md:hidden bg-black text-white py-4 px-6 space-y-4">
-                        <a href="#" className="block">Home</a>
-                        <a href="#" className="block">Features</a>
-                        <a href="#" className="block">Services</a>
-                        <a href="#" className="block">Pricing</a>
+                        <button onClick={() => scrollToSection(homeRef)} className="block">Home</button>
+                        <button onClick={() => scrollToSection(featuresRef)} className="block">Features</button>
+                        <button onClick={() => scrollToSection(servicesRef)} className="block">Services</button>
+                        <button onClick={() => scrollToSection(pricingRef)} className="block">Pricing</button>
+                        <button onClick={() => scrollToSection(faqRef)} className="block">FAQ</button>
                         <button 
                             className="w-full bg-white text-black px-4 py-2 rounded-lg hover:bg-gray-300 transition"
                             onClick={() => setShowAuthForm(true)}
                         >
                             Get Started
                         </button>
-                    </div>              )}
+                    </div>
+                )}
             </header>
-
-         
         </>
     );
 }

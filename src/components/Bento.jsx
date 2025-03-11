@@ -76,9 +76,7 @@ function BentoItem({ item, isHovered, onHover, onLeave }) {
         </div>
 
         <div className="mt-4">
-          <span className="text-xs text-zinc-500 uppercase tracking-wider group-hover:text-white transition-colors duration-300">
-            Learn More →
-          </span>
+  
         </div>
       </div>
     </div>
